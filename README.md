@@ -23,7 +23,7 @@ public class Node<T> {
 	}
 	
 }
-```java
+```
 
 The Java compiler will replace the **T** with **Object** because the type was not bounded. The result will be as follow:
 
