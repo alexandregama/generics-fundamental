@@ -138,3 +138,213 @@ public class ArrayCounter {
 }
 
 ```
+
+Another example using inheritance classes. We could have the following classes extending from **Shape** class:
+
+```java
+public class Shape {
+
+	public String draw() {
+		return "Drawing a shape";
+	}
+}
+```
+
+```java
+public class Circle extends Shape {
+
+	@Override
+	public String draw() {
+		return "Drawing a Circle";
+	}
+	
+}
+```
+
+```java
+public class Rectangle extends Shape {
+
+	@Override
+	public String draw() {
+		return "Drawing a Rectangle";
+	}
+	
+}
+```
+
+You can write a generic method to draw different shapes as follows:
+
+```java
+public class Drawer {
+
+	/*
+	 * We must use <T extends Shape>. Without that our shape variable does not know about the draw() method
+	 */
+	public <T extends Shape> String drawSomething(T shape) {
+		return shape.draw();
+	}
+	
+}
+```
+
+The Java Compiler will replace the **T** with **Shape** as follows:
+
+```java
+public class Drawer {
+
+	public <Shape> String drawSomething(Shape shape) {
+		return shape.draw();
+	}
+	
+}
+```
+
+### Bridge Methods and Erasure Type
+
+Given the following two classes:
+
+```java
+public class Node<T> {
+
+	private T data;
+	
+	public Node(T data) {
+		this.data = data;
+	}
+	
+	public void setData(T data) {
+		System.out.println("Node.setData");
+		this.data = data;
+	}
+	
+	public T getData() {
+		System.out.println("Node.getData");
+		return data;
+	}
+	
+}
+```
+
+```java
+public class MyNode extends Node<Integer> {
+	
+	public MyNode(Integer data) {
+		super(data);
+	}
+	
+	@Override
+	public void setData(Integer data) {
+		System.out.println("MyNode.setData");
+		super.setData(data);
+	}
+	
+	@Override
+	public Integer getData() {
+		System.out.println("MyNode.getData");
+		return super.getData();
+	}
+
+}
+```
+
+The Java Compiler my need to create a **synthatic method**, called a **bridge method** when compiling class that extends a parametized class or interface.
+
+After **Type Erasure** the Node class will be as follows:
+
+```java
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
